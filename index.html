@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Zoey's Art</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/main.css">
+    </head>
+    <body>
+    <header>
+        <h1>Zoey's Art</h1>
+    </header>
+    <div id="container">
+<nav>
+    <ul>
+   <li><a href="#">About</a></li> 
+   <li><a href="#">Products</a></li>
+   <li><a href="#">Pricings</a></li>
+   </ul>
+</nav>
+<section class="flex container">
+   <article class="left">
+<form action="">
+<label for="Name of Order">Name of Order</label>
+<br>
+<input type="text" id="Name of Order"
+</form>
+<p>Click the button to get your coordinates.</p>
+<button onclick="getLocation()">Click Here!</button>
+<p id="demo"></p>
+<script>
+const x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function success(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+function error(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+</script>
+</article>
+   <article class="right">
+<p>What medium(s) of art would you like?</p>
+<label for="Physical">Physical</label>
+<input type="checkbox" id="Physical">
+<label for="Digital">Digital</label>
+<input type="checkbox" id="Digital">
+   </article>
+   <script>
+function dragstartHandler(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+function dragoverHandler(ev) {
+  ev.preventDefault();
+}
+function dropHandler(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+<p style="clear: both;">Drag the style(s) of art you would like in the rectangle:</p>
+<div id="div1" ondrop="dropHandler(event)"   ondragover="dragoverHandler(event)"></div>
+<br>
+<img id="img1" src="assets/dem.jpg" draggable="true" ondragstart="dragstartHandler(event)" width="200" height="259">
+<img id="img2" src="assets/dem2.jpg" draggable="true" ondragstart="dragstartHandler(event)" width="200" height="203">
+<img id="img3" src="assets/dem3.jpg" draggable="true" ondragstart="dragstartHandler(event)" width="200" height="388">
+</section>
+    </div>      
+    </body>
+</html>
