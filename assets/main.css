@@ -4,21 +4,11 @@
 .flex-container{
     display: flex;
 }
-@media only screen and (min-width: 768px) {
-}
-@media only screen and (min-width: 767px) {
-    .flex-container{
-        display: flex;
-        flex-direction: column;
-    }
-}
-@media only screen and (min-width: 768px) and (orientation: portrait){
-}
 body{
     background: url(background.jpg) no-repeat fixed top right;
 }
-#container{
-    width: 768px;
+#container {
+    width: 90%;
     margin: 0 auto;
 }
 .left{
@@ -65,4 +55,6 @@ header{
 }
 script{
     clear: both;
+}
+@media (max-width: 799px) {
 }
