@@ -52,9 +52,10 @@ header{
 script{
     clear: both;
 }
-@media (max-width: 799px) {
-    #container {
+@media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+}
+   #container {
     width: 90%;
     margin: 0 auto;
-}
 }
