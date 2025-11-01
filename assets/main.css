@@ -7,10 +7,6 @@
 body{
     background: url(background.jpg) no-repeat fixed top right;
 }
-#container {
-    width: 90%;
-    margin: 0 auto;
-}
 .left{
     flex-grow: 1;
     height: 250px;
@@ -57,4 +53,8 @@ script{
     clear: both;
 }
 @media (max-width: 799px) {
+    #container {
+    width: 90%;
+    margin: 0 auto;
+}
 }
